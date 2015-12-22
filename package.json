@@ -1,0 +1,6 @@
+{
+    "devDependencies": {
+    "grunt": "~0.4.5",
+    "chai": "2.3.0"
+  }
+}
