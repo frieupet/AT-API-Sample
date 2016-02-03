@@ -1,9 +1,9 @@
 {
-  "url": "http://bdxsvn001:8090/summary/?r=Archi/AT-API-Sample.git",
-  "name": "at-api-helper",
+  "url": "https://github.com/frieupet/AT-API-Sample.git",
+  "name": "AT-API-Sample",
   "version": "0.0.1",
   "description": "Sample lib for check a metric's value",
-  "author": "jpiquet",
+  "author": "frieupet",
   "license": "ISC",
   "g": true,
   "dependencies": {
@@ -16,6 +16,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jeje87/LiveAlert.git"
+    "url": "https://github.com/frieupet/AT-API-Sample.git"
   }
 }
