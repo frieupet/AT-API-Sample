@@ -1,6 +1,21 @@
 {
-    "devDependencies": {
+  "url": "http://bdxsvn001:8090/summary/?r=Archi/AT-API-Sample.git",
+  "name": "at-api-helper",
+  "version": "0.0.1",
+  "description": "Sample lib for check a metric's value",
+  "author": "jpiquet",
+  "license": "ISC",
+  "g": true,
+  "dependencies": {
+    "node-rest-client": "1.5.1",
+    "q": "1.4.1"
+  },
+  "devDependencies": {
     "grunt": "~0.4.5",
     "chai": "2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeje87/LiveAlert.git"
   }
 }
