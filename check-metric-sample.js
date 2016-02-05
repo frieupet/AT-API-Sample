@@ -1,9 +1,8 @@
 "use strict";
-
+ 
 var ATHelper = require('./lib/at-api-helper.js');
 var nodemailer = require('nodemailer');
 
-// create reusable transporter object using SMTP transport
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
@@ -24,34 +23,35 @@ var mailOptions = {
     html: 'Hello<br> An anormal amount of error pages has been detected on the website.' // html body
 };
 
+
 // Query parameters
 var queryParameters = {
-    "login": "login_atinternet@domain.com",
-    "password": "password_AT_Internet",
-    "url": "https://apirest.atinternet-solutions.com/data/v2/html/getData?&columns={m_page_loads}&sort={-m_page_loads}" +
-    "&filter={d_page:{$eq:'404_error'}}&space={s:554331}&period={R:{D:'0'}}&max-results=50&page-num=1"
+    "login": "florian.rieupet@atinternet.com",
+    "password": "738AFYjhp",
+    "url": "https://apirest.atinternet-solutions.com/data/v2/json/getData?&columns={m_visits}&sort={-m_visits}" +
+    "&filter={d_geo_country:{$eq:'Allemagne'}}&space={s:429023}&period={R:{D:'0'}}&max-results=50&page-num=1"
 };
-
+ 
+ 
+var minutes = 1, the_interval = minutes * 60 * 1000;
+setInterval(function() {
+  console.log("I am doing my check");
 ATHelper.getScalarValue(queryParameters)
     .then(function (result) {
-
-        var threshold = 10;
-
+ 
+        // threshold to reach
+        var threshold = 500;
+ 
         //compare with threshold
         if (result >= threshold) {
-            transporter.sendMail(mailOptions, function(error, info){
-                if(error){
-            return console.log(error);
-            }
-    console.log('Message sent: ' + info.response);
-
-});
+            console.log("Threshold reached -> actual value : %s (threshold value : %s)", result, threshold);
         }
         else {
             console.log("Threshold NOT reached -> actual value : %s (threshold value : %s)", result, threshold);
         }
-
+ 
     })
     .catch(function (error) {
         console.log("An error has occurred : %s", error.message);
     });
+    }, the_interval); 
