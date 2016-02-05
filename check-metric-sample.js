@@ -33,6 +33,7 @@ var queryParameters = {
 };
  
  
+//The variable minutes give the delay between each call 
 var minutes = 1, the_interval = minutes * 60 * 1000;
 setInterval(function() {
   console.log("I am doing my check");
@@ -44,7 +45,12 @@ ATHelper.getScalarValue(queryParameters)
  
         //compare with threshold
         if (result >= threshold) {
-            console.log("Threshold reached -> actual value : %s (threshold value : %s)", result, threshold);
+            transporter.sendMail(mailOptions, function(error, info){
+                if(error){
+                    return console.log(error);
+                }
+                console.log('Message sent: '+ info.response);
+            });
         }
         else {
             console.log("Threshold NOT reached -> actual value : %s (threshold value : %s)", result, threshold);
