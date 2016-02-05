@@ -26,8 +26,8 @@ var mailOptions = {
 
 // Query parameters
 var queryParameters = {
-    "login": "florian.rieupet@atinternet.com",
-    "password": "738AFYjhp",
+    "login": "user@atinternet.com",
+    "password": "xxxxxx",
     "url": "https://apirest.atinternet-solutions.com/data/v2/json/getData?&columns={m_visits}&sort={-m_visits}" +
     "&filter={d_geo_country:{$eq:'Allemagne'}}&space={s:429023}&period={R:{D:'0'}}&max-results=50&page-num=1"
 };
